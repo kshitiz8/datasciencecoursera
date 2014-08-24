@@ -1,12 +1,12 @@
 processing on input data
 =========================
-from the training and test set data, extracted the mean and std measurement for all the variables.
-List of these fields is below.
-mapped the subject from subject file with the data
-joined the activity data with activit_label data to map label id with activity name
-mapped the activity name with the data
+- read the input with sep = " ".
+- extract jus the mean and std measuremtn fields
+- cbind the subject field
+- cbind the activity field.(activity name is obtained from activity label id by joining the two data files)
+- do the above steps for train data and test data and rbind both the datasets
+- do a group by on subject and activity using thae aggreagate function to get the mean of other the measurement field
 
-did a group by on subject and activity using thae aggreagate function to get the mean of other the measurement field
 
 Output Fields
 ==============
