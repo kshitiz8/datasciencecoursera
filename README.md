@@ -7,9 +7,11 @@
 =========================
 - read and cleaned the input data.
 - from the clean data, extracted the mean and std measurement for all the variables
+
 #attach_subject()
 =========================
 - mapped the subjects from subject file corresponding to each record in the data.
+
 #attach_activity()
 =========================
 - joined the activity data with activit_label data to map label id with activity name for each record
