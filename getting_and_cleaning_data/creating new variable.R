@@ -1,0 +1,13 @@
+# fileUrl<- "https://data.baltimorecity.gov/api/views/k5ry-ef3g/rows.csv?accessType=DOWNLOAD"
+# download.file(fileUrl,destfile="./getting_and_cleaning_data//restaurants.csv",method="curl")
+# restData <- read.csv("./getting_and_cleaning_data//restaurants.csv")
+restData$nearMe = restData$neighborhood %in% c("Roland Park", "Homeland")
+table(restData$nearMe)
+restData$zipWrong = ifelse(restData$zipCode < 0 , T,F)
+table(restData$zipWrong,restData$zipCode <0 )
+restData$zipGroups = cut(restData$zipCode, breaks =  c(-30000,0,10000,20000,30000))
+restData$zipGroups = cut(restData$zipCode, breaks =  quantile(restData$zipCode)
+table(restData$zipGroups)
+library(Hmisc)
+restData$zipGroups = cut2(restData$zipCode, g=4)
+restData$zcf = factor(restData$zipCode)
