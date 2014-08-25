@@ -10,7 +10,8 @@ processing on input data
 
 Output Fields
 ==============
-- activity: 
+- activity: The activity name performed by the subject. Possible values are 
+  * WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 - subject: 
 - tBodyAcc_mean_Y: 
 - tBodyAcc_mean_Z: 
