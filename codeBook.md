@@ -1,6 +1,6 @@
 Processing on input data
 =========================
-- read the input with sep = " ". (There are few instance of multiple spaces and space character in the beginning in each row which need to trimmed to get 561 measurement fields.)
+- read the input.
 - extract just the mean and std measurement fields of all varaibles
 - cbind the subject field
 - cbind the activity field.(activity name is obtained from activity label id by joining the two data files)
