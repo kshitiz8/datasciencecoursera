@@ -23,7 +23,7 @@ read_and_clean_set = function (dir, ...){
                 stop("Wrong directory! Possible options: test/train")
         }
         header = get_header();
-        cdata = read.table(file)
+        cdata = read.table(file,...)
         cdata  = cdata[, header$id];
         names(cdata) = header$header;
         cdata
@@ -49,18 +49,16 @@ attach_label = function(dir,cdata){
         }else{
                 stop("Wrong directory! Possible options: test/train")
         }
-        labeldata = read.delim("./activity_labels.txt", 
-                                header=F, sep = " ",
+        labeldata = read.table("./activity_labels.txt", 
                                 col.names = c("label","activity"));
         nrows = dim(cdata)[1]
-        actdata = read.delim(file,header = F, nrows = nrows,col.names = "label");
-        actdata = merge.data.frame(actdata, labeldata,by = "label", sort = F, all.x= T)
+        actdata = read.table(file, nrows = nrows,col.names = "label");
+        actdata$rowno = seq_along(actdata$label)
+        actdata = merge.data.frame(actdata, labeldata,by = "label",  all.x= T)
+        actdata = actdata[order(actdata$rowno),]
         activity = actdata$activity;
         cdata = cbind(activity,cdata);
         cdata
-        
-        
-        
 }
 process_data = function(dir){
         if(!dir %in% c("test","train")){
@@ -81,5 +79,8 @@ merge = function(){
         final = final[,!(names(final) %in% drops)]
         final
 }
-
+run_analysis = function(){
+        final = merge()
+        write.table(final, file = "output.txt", row.names = F)
+}
 
