@@ -27,7 +27,7 @@ colnames(subjectData) = c("SubjectId")
 colnames(yData) = c("Activity")
 
 data.full = cbind(subjectData, selected.x.data, yData)
-data.final = merge(data.full, activityLabels, by.x = "Activity", by.y = "V1")[, -1]
+data.final = merge.data.frame(data.full, activityLabels, by.x = "Activity", by.y = "V1")[, -1]
 colnames(data.final)[68] = "Activity"
 
 agg.data.final = aggregate(data.final[, 2:67], by = data.final[,c("SubjectId", "Activity")], mean)

@@ -7,10 +7,10 @@ library(stringr);
 
 get_header = function(){
         fdata = read.delim("./features.txt",sep =" ", col.names = c("id","feature"));
+        fdata;
         fdata$header = str_replace(fdata$feature,"\\(\\)","")
         fdata$header = str_replace_all(fdata$header,"-","_")
-        fdata;
-        set = !is.na(str_match(fdata$header,"_mean"))[,1] | !is.na(str_match(fdata$header,"_std"))[,1]
+        set = !is.na(str_match(fdata$feature,"-mean\\(\\)"))[,1] | !is.na(str_match(fdata$feature,"-std\\(\\)"))[,1]
         mean_std_fdata = fdata[set,]
         mean_std_fdata;       
 }
@@ -37,7 +37,7 @@ attach_subject = function(dir, cdata){
                 stop("Wrong directory! Possible options: test/train")
         }
         nrows = dim(cdata)[1]
-        subdata = read.delim(file,header = F, nrows = nrows,col.names = "subject");
+        subdata = read.table(file,nrows = nrows,col.names = "subject", stringsAsFactors = F);
         cdata = cbind(subdata,cdata);
         cdata
 }
@@ -50,9 +50,13 @@ attach_label = function(dir,cdata){
                 stop("Wrong directory! Possible options: test/train")
         }
         labeldata = read.table("./activity_labels.txt", 
-                                col.names = c("label","activity"));
+                                col.names = c("label","activity"),
+                                stringsAsFactors = F);
         nrows = dim(cdata)[1]
-        actdata = read.table(file, nrows = nrows,col.names = "label");
+        actdata = read.table(file, 
+                             nrows = nrows,
+                             col.names = "label",
+                             stringsAsFactors = F);
         actdata$rowno = seq_along(actdata$label)
         actdata = merge.data.frame(actdata, labeldata,by = "label",  all.x= T)
         actdata = actdata[order(actdata$rowno),]
@@ -72,15 +76,14 @@ process_data = function(dir){
 merge = function(){
         data = rbind(process_data("test"),process_data("train"))
         data$activity = as.vector(data$activity)
-        attach(data)
-        final = aggregate(data,by = list(activity,subject),FUN =  mean)
-        final$activity = final$Group.1
-        drops <- c("Group.1","Group.2")
-        final = final[,!(names(final) %in% drops)]
+        names = names(data);
+        metrics = ! names %in% c("subject","activity")
+        final = aggregate(data[,metrics],by = list(activity,subject),FUN =  mean)
+        names(final) = names
         final
 }
-run_analysis = function(){
+run_analysis = function(out = "output.txt"){
         final = merge()
-        write.table(final, file = "output.txt", row.names = F)
+        write.table(final, file = out, row.names = F)
 }
 
