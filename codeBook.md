@@ -1,7 +1,7 @@
 processing on input data
 =========================
 - read the input with sep = " ".
-- extract jus the mean and std measuremtn fields
+- extract jus the mean and std measurement fields
 - cbind the subject field
 - cbind the activity field.(activity name is obtained from activity label id by joining the two data files)
 - do the above steps for train data and test data and rbind both the datasets
