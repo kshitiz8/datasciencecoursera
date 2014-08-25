@@ -22,17 +22,9 @@ read_and_clean_set = function (dir, ...){
         }else{
                 stop("Wrong directory! Possible options: test/train")
         }
-        data = read.delim(file,header = F, ...);
-        data$V1 = as.vector(data$V1);
-        data$V1 = str_replace_all(data$V1, '^ +',"")
-        data$V1 = str_replace_all(data$V1, ' +',",")
         header = get_header();
-        cdata = t(sapply(strsplit(data$V1,","), function(x){
-                y = as.numeric(x)
-                y = y[header$id]
-                }
-        ))
-        cdata = as.data.frame(cdata)
+        cdata = read.table(file)
+        cdata  = cdata[, header$id];
         names(cdata) = header$header;
         cdata
 }
