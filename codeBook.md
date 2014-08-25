@@ -18,7 +18,7 @@ Output Fields
   * STANDING 
   * LAYING
 - **subject**: The id of the subject performing the activity for measurement. Possible value are 1-30
-- The first set of features selected originate from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. Foloowing are the average of the mean and std deviation measurement of tBodyAcc-XYZ and tGravityAcc-XYZ
+- The first set of features selected originate from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. Following are the average of the mean and std deviation measurements of tBodyAcc-XYZ, tGravityAcc-XYZ and tBodyGyro-XYZ for each subject and activity:
   * **tBodyAcc_mean_Y**: 
   * **tBodyAcc_mean_Z**: 
   * **tBodyAcc_std_X**: 
@@ -30,13 +30,13 @@ Output Fields
   * **tGravityAcc_std_X**: 
   * **tGravityAcc_std_Y**: 
   * **tGravityAcc_std_Z**: 
-- Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ)
   * **tBodyGyro_mean_X**: 
   * **tBodyGyro_mean_Y**: 
   * **tBodyGyro_mean_Z**: 
   * **tBodyGyro_std_X**: 
   * **tBodyGyro_std_Y**: 
-  * **tBodyGyro_std_Z**: 
+  * **tBodyGyro_std_Z**:
+- Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Following are the average of the mean and std deviation these measurements for each subject and activity:
   * **tBodyAccJerk_mean_X**: 
   * **tBodyAccJerk_mean_Y**: 
   * **tBodyAccJerk_mean_Z**: 
@@ -49,7 +49,7 @@ Output Fields
   * **tBodyGyroJerk_std_X**: 
   * **tBodyGyroJerk_std_Y**: 
   * **tBodyGyroJerk_std_Z**:
-- Also the magnitude of the three-dimensional signals above were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+- Also the magnitude of the three-dimensional signals above were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag).Following are the average of the mean and std deviation these measurements for each subject and activity:
   * **tBodyAccMag_mean**: 
   * **tBodyAccMag_std**: 
   * **tGravityAccMag_mean**: 
@@ -60,6 +60,7 @@ Output Fields
   * **tBodyGyroMag_std**: 
   * **tBodyGyroJerkMag_mean**: 
   * **tBodyGyroJerkMag_std**: 
+- Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals).
   * **fBodyAcc_mean_X**: 
   * **fBodyAcc_mean_Y**: 
   * **fBodyAcc_mean_Z**: 
