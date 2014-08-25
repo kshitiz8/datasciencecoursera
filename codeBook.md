@@ -20,17 +20,17 @@ Output Fields
 - **subject**: The id of the subject performing the activity for measurement. Possible value are 1-30
   ------------
 - The first set of features selected originate from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. Foloowing are the average of the mean and std deviation measurement of tBodyAcc-XYZ and tGravityAcc-XYZ
-  * tBodyAcc_mean_Y: 
-  * tBodyAcc_mean_Z: 
-  * tBodyAcc_std_X: 
-  * tBodyAcc_std_Y: 
-  * tBodyAcc_std_Z: 
-  * tGravityAcc_mean_X: 
-  * tGravityAcc_mean_Y: 
-  * tGravityAcc_mean_Z: 
-  * tGravityAcc_std_X: 
-  * tGravityAcc_std_Y: 
-  * tGravityAcc_std_Z: 
+  * **tBodyAcc_mean_Y**: 
+  * **tBodyAcc_mean_Z**: 
+  * **tBodyAcc_std_X**: 
+  * **tBodyAcc_std_Y**: 
+  * **tBodyAcc_std_Z**: 
+  * **tGravityAcc_mean_X**: 
+  * **tGravityAcc_mean_Y**: 
+  * **tGravityAcc_mean_Z**: 
+  * **tGravityAcc_std_X**: 
+  * **tGravityAcc_std_Y**: 
+  * **tGravityAcc_std_Z**: 
 - tBodyAccJerk_mean_X: 
 - tBodyAccJerk_mean_Y: 
 - tBodyAccJerk_mean_Z: 
