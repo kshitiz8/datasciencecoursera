@@ -10,7 +10,7 @@ processing on input data
 
 Output Fields
 ==============
-- activity: The activity name performed by the subject. Possible values are 
+- **activity**: The activity name performed by the subject. Possible values are 
   * WALKING
   * WALKING_UPSTAIRS
   * WALKING_DOWNSTAIRS 
