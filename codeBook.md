@@ -6,6 +6,7 @@ Processing on input data
 - cbind the activity field.(activity name is obtained from activity label id by joining the two data files)
 - do the above steps for train data and test data and rbind both the datasets
 - do a group by on subject and activity using thae aggreagate function to get the mean of other the measurement field
+- **output file is space delimited file with first row as header**
 
 
 Output Fields
